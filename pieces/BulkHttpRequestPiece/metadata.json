@@ -1,0 +1,12 @@
+{
+  "name": "BulkHttpRequestPiece",
+  "description": "Fetch multiple URLs (comma-separated) and return an array of base64-encoded response bytes (useful for bulk image fetching).",
+  "dependency": {
+    "requirements_file": "requirements_0.txt"
+  },
+  "tags": ["default", "http", "request", "bulk", "image"],
+  "style": {
+    "node_label": "Bulk HTTP Request",
+    "icon_class_name": "material-symbols:send"
+  }
+}
