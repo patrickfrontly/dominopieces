@@ -4,7 +4,12 @@
       "dockerfile": null,
       "requirements_file": "requirements_0.txt"
     },
-    "pieces": ["PFImageFilterPiece", "PFHttpRequestPiece"],
+    "pieces": [
+      "BulkHttpRequestPiece",
+      "BulkImageFilterPiece",
+      "PFImageFilterPiece",
+      "PFHttpRequestPiece"
+    ],
     "secrets": [],
     "source_image": "ghcr.io/patrickfrontly/dominopieces:0.0.3-group0"
   }

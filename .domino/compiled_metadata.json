@@ -73,7 +73,79 @@
       "type": "object"
     },
     "secrets_schema": null,
-    "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/HttpRequestPiece"
+    "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/PFHttpRequestPiece"
+  },
+  "BulkHttpRequestPiece": {
+    "name": "BulkHttpRequestPiece",
+    "dependency": {
+      "dockerfile": null,
+      "requirements_file": "requirements_0.txt"
+    },
+    "tags": ["default", "http", "request", "bulk", "image"],
+    "style": {
+      "node_label": "Bulk HTTP Request",
+      "node_type": "default",
+      "node_style": {
+        "backgroundColor": "#ebebeb"
+      },
+      "useIcon": true,
+      "icon_class_name": "material-symbols:send",
+      "iconStyle": {
+        "cursor": "pointer"
+      }
+    },
+    "description": "Fetch multiple URLs (comma-separated) and return an array of base64-encoded response bytes (useful for bulk image fetching).",
+    "input_schema": {
+      "$defs": {
+        "MethodTypes": {
+          "enum": ["GET"],
+          "title": "MethodTypes",
+          "type": "string"
+        }
+      },
+      "properties": {
+        "urls_csv": {
+          "description": "Comma-separated list of URLs to request (e.g. 'https://a.png,https://b.png').",
+          "title": "Urls Csv",
+          "type": "string"
+        },
+        "method": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/MethodTypes"
+            }
+          ],
+          "default": "GET",
+          "description": "HTTP method to use. BulkHttpRequest currently supports GET only."
+        },
+        "bearer_token": {
+          "default": null,
+          "description": "Bearer token to use for authentication (applied to all requests).",
+          "title": "Bearer Token",
+          "type": "string"
+        }
+      },
+      "required": ["urls_csv"],
+      "title": "BulkHttpRequestPiece",
+      "type": "object"
+    },
+    "output_schema": {
+      "properties": {
+        "base64_bytes_data_list": {
+          "description": "Array of output payloads as base64 encoded strings (one per URL, in the same order).",
+          "items": {
+            "type": "string"
+          },
+          "title": "Base64 Bytes Data List",
+          "type": "array"
+        }
+      },
+      "required": ["base64_bytes_data_list"],
+      "title": "OutputModel",
+      "type": "object"
+    },
+    "secrets_schema": null,
+    "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/BulkHttpRequestPiece"
   },
   "PFImageFilterPiece": {
     "name": "PFImageFilterPiece",
@@ -205,5 +277,145 @@
     },
     "secrets_schema": null,
     "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/PFImageFilterPiece"
+  },
+  "BulkImageFilterPiece": {
+    "name": "BulkImageFilterPiece",
+    "dependency": {
+      "dockerfile": null,
+      "requirements_file": "requirements_0.txt"
+    },
+    "tags": ["default", "image", "bulk"],
+    "style": {
+      "node_label": "Bulk Image Filter",
+      "node_type": "default",
+      "node_style": {
+        "backgroundColor": "#ebebeb"
+      },
+      "useIcon": true,
+      "icon_class_name": "ic:twotone-filter",
+      "iconStyle": {
+        "cursor": "pointer"
+      }
+    },
+    "description": "Apply selected image filters to an array of images (each image can be a file path or base64 string).",
+    "input_schema": {
+      "$defs": {
+        "OutputTypeType": {
+          "description": "Output type for the result image(s)",
+          "enum": ["file", "base64_string", "both"],
+          "title": "OutputTypeType",
+          "type": "string"
+        }
+      },
+      "properties": {
+        "input_images": {
+          "description": "Input images. Each item should be either a path to a file, or a base64 encoded string.",
+          "from_upstream": "always",
+          "items": {
+            "type": "string"
+          },
+          "title": "Input Images",
+          "type": "array"
+        },
+        "sepia": {
+          "default": false,
+          "description": "Apply sepia effect.",
+          "title": "Sepia",
+          "type": "boolean"
+        },
+        "black_and_white": {
+          "default": false,
+          "description": "Apply black and white effect.",
+          "title": "Black And White",
+          "type": "boolean"
+        },
+        "brightness": {
+          "default": false,
+          "description": "Apply brightness effect.",
+          "title": "Brightness",
+          "type": "boolean"
+        },
+        "darkness": {
+          "default": false,
+          "description": "Apply darkness effect.",
+          "title": "Darkness",
+          "type": "boolean"
+        },
+        "contrast": {
+          "default": false,
+          "description": "Apply contrast effect.",
+          "title": "Contrast",
+          "type": "boolean"
+        },
+        "red": {
+          "default": false,
+          "description": "Apply red effect.",
+          "title": "Red",
+          "type": "boolean"
+        },
+        "green": {
+          "default": false,
+          "description": "Apply green effect.",
+          "title": "Green",
+          "type": "boolean"
+        },
+        "blue": {
+          "default": false,
+          "description": "Apply blue effect.",
+          "title": "Blue",
+          "type": "boolean"
+        },
+        "cool": {
+          "default": false,
+          "description": "Apply cool effect.",
+          "title": "Cool",
+          "type": "boolean"
+        },
+        "warm": {
+          "default": false,
+          "description": "Apply warm effect.",
+          "title": "Warm",
+          "type": "boolean"
+        },
+        "output_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/OutputTypeType"
+            }
+          ],
+          "default": "both",
+          "description": "Format of the output images. Options are: `file`, `base64_string`, `both`."
+        }
+      },
+      "required": ["input_images"],
+      "title": "BulkImageFilterPiece",
+      "type": "object"
+    },
+    "output_schema": {
+      "properties": {
+        "image_base64_strings": {
+          "default": [],
+          "description": "Base64 encoded strings of the output images (one per input).",
+          "items": {
+            "type": "string"
+          },
+          "title": "Image Base64 Strings",
+          "type": "array"
+        },
+        "image_file_paths": {
+          "default": [],
+          "description": "Paths to the output image files (one per input).",
+          "items": {
+            "type": "string"
+          },
+          "title": "Image File Paths",
+          "type": "array"
+        }
+      },
+      "title": "OutputModel",
+      "type": "object"
+    },
+    "secrets_schema": null,
+    "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/BulkImageFilterPiece"
   }
 }
