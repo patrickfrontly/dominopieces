@@ -11,6 +11,6 @@
       "PFHttpRequestPiece"
     ],
     "secrets": [],
-    "source_image": "ghcr.io/patrickfrontly/dominopieces:0.0.4-group0"
+    "source_image": "ghcr.io/patrickfrontly/dominopieces:0.0.5-group0"
   }
 }

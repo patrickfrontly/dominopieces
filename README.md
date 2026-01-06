@@ -10,9 +10,9 @@ This is a minimal Domino Pieces repository containing:
 ## Manual publish (no GitHub Actions)
 
 Domino runs Pieces from a **Docker image** referenced in `.domino/dependencies_map.json`.
-For version `0.0.4` this repository expects the image:
+For version `0.0.5` this repository expects the image:
 
-- `ghcr.io/patrickfrontly/dominopieces:0.0.4-group0`
+- `ghcr.io/patrickfrontly/dominopieces:0.0.5-group0`
 
 ### 1) Build & push the image to GHCR
 
@@ -25,8 +25,8 @@ From the repo root:
 
 ```bash
 docker login ghcr.io -u patrickfrontly
-docker build -t ghcr.io/patrickfrontly/dominopieces:0.0.4-group0 .
-docker push ghcr.io/patrickfrontly/dominopieces:0.0.4-group0
+docker build -t ghcr.io/patrickfrontly/dominopieces:0.0.5-group0 .
+docker push ghcr.io/patrickfrontly/dominopieces:0.0.5-group0
 ```
 
 ### 2) Commit and tag the repo
@@ -35,10 +35,10 @@ Domino selects repository versions via **git tags**.
 
 ```bash
 git add config.toml .domino Dockerfile pieces dependencies README.md
-git commit -m "Release 0.0.4"
+git commit -m "Release 0.0.5"
 git push
 
-git tag 0.0.4
+git tag 0.0.5
 git push --tags
 ```
 
@@ -50,4 +50,4 @@ In the UI (Workspace Settings → Pieces Repositories), add:
 
 Select version:
 
-- `0.0.4`
+- `0.0.5`
