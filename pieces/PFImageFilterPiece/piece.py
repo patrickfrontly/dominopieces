@@ -22,7 +22,7 @@ filter_masks = {
 }
 
 
-class ImageFilterPiece(BasePiece):
+class PFImageFilterPiece(BasePiece):
 
     def piece_function(self, input_data: InputModel):
 

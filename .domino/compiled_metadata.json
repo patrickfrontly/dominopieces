@@ -1,15 +1,11 @@
 {
-  "HttpRequestPiece": {
-    "name": "HttpRequestPiece",
+  "PFHttpRequestPiece": {
+    "name": "PFHttpRequestPiece",
     "dependency": {
       "dockerfile": null,
       "requirements_file": "requirements_0.txt"
     },
-    "tags": [
-      "default",
-      "http",
-      "request"
-    ],
+    "tags": ["default", "http", "request"],
     "style": {
       "node_label": "HTTP Request",
       "node_type": "default",
@@ -26,12 +22,7 @@
     "input_schema": {
       "$defs": {
         "MethodTypes": {
-          "enum": [
-            "GET",
-            "POST",
-            "PUT",
-            "DELETE"
-          ],
+          "enum": ["GET", "POST", "PUT", "DELETE"],
           "title": "MethodTypes",
           "type": "string"
         }
@@ -65,10 +56,8 @@
           "widget": "codeeditor-json"
         }
       },
-      "required": [
-        "url"
-      ],
-      "title": "HttpRequestPiece",
+      "required": ["url"],
+      "title": "PFHttpRequestPiece",
       "type": "object"
     },
     "output_schema": {
@@ -79,25 +68,20 @@
           "type": "string"
         }
       },
-      "required": [
-        "base64_bytes_data"
-      ],
+      "required": ["base64_bytes_data"],
       "title": "OutputModel",
       "type": "object"
     },
     "secrets_schema": null,
     "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/HttpRequestPiece"
   },
-  "ImageFilterPiece": {
-    "name": "ImageFilterPiece",
+  "PFImageFilterPiece": {
+    "name": "PFImageFilterPiece",
     "dependency": {
       "dockerfile": null,
       "requirements_file": "requirements_0.txt"
     },
-    "tags": [
-      "default",
-      "image"
-    ],
+    "tags": ["default", "image"],
     "style": {
       "node_label": "Image Filter",
       "node_type": "default",
@@ -115,11 +99,7 @@
       "$defs": {
         "OutputTypeType": {
           "description": "Output type for the result text",
-          "enum": [
-            "file",
-            "base64_string",
-            "both"
-          ],
+          "enum": ["file", "base64_string", "both"],
           "title": "OutputTypeType",
           "type": "string"
         }
@@ -201,10 +181,8 @@
           "description": "Format of the output image. Options are: `file`, `base64_string`, `both`."
         }
       },
-      "required": [
-        "input_image"
-      ],
-      "title": "ImageFilterPiece",
+      "required": ["input_image"],
+      "title": "PFImageFilterPiece",
       "type": "object"
     },
     "output_schema": {
@@ -226,8 +204,6 @@
       "type": "object"
     },
     "secrets_schema": null,
-    "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/ImageFilterPiece"
+    "source_url": "https://github.com/patrickfrontly/dominopieces/tree/main/pieces/PFImageFilterPiece"
   }
 }
-
-

@@ -1,5 +1,5 @@
 {
-    "name": "ImageFilterPiece",
+    "name": "PFImageFilterPiece",
     "description": "A Piece that applies selected image filters to an image.",
     "dependency": {
         "requirements_file": "requirements_0.txt"

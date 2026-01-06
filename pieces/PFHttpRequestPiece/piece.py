@@ -5,7 +5,7 @@ import base64
 import json
 
 
-class HttpRequestPiece(BasePiece):
+class PFHttpRequestPiece(BasePiece):
     def piece_function(self, input_data: InputModel):
 
         try:

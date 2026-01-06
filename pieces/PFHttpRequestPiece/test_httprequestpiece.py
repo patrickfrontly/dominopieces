@@ -9,7 +9,7 @@ def test_httprequest_get():
         'method': 'GET'
     }
     piece_output = piece_dry_run(
-        piece_name="HttpRequestPiece",
+        piece_name="PFHttpRequestPiece",
         input_data=input_data
     )
     output_data = base64.decodebytes(piece_output['base64_bytes_data'].encode('utf-8'))
@@ -27,7 +27,7 @@ def test_httprequest_post():
         })
     }
     piece_output = piece_dry_run(
-        piece_name="HttpRequestPiece",
+        piece_name="PFHttpRequestPiece",
         input_data=input_data
     )
     output_data = base64.decodebytes(piece_output['base64_bytes_data'].encode('utf-8'))
@@ -46,7 +46,7 @@ def test_httprequest_put():
         })
     }
     piece_output = piece_dry_run(
-        piece_name="HttpRequestPiece",
+        piece_name="PFHttpRequestPiece",
         input_data=input_data
     )
     output_data = base64.decodebytes(piece_output['base64_bytes_data'].encode('utf-8'))
@@ -61,7 +61,7 @@ def test_httprequest_delete():
         'method': 'DELETE'
     }
     piece_output = piece_dry_run(
-        piece_name="HttpRequestPiece",
+        piece_name="PFHttpRequestPiece",
         input_data=input_data
     )
     output_data = base64.decodebytes(piece_output['base64_bytes_data'].encode('utf-8'))

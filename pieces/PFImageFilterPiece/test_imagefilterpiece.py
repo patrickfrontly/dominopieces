@@ -22,7 +22,7 @@ def test_imagefilterpiece():
         output_type="both"
     )
     piece_output = piece_dry_run(
-        piece_name="ImageFilterPiece",
+        piece_name="PFImageFilterPiece",
         input_data=input_data
     )
     assert piece_output is not None
