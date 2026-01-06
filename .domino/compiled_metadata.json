@@ -81,7 +81,7 @@
       "dockerfile": null,
       "requirements_file": "requirements_0.txt"
     },
-    "tags": ["default", "http", "request", "bulk", "image"],
+    "tags": ["default", "http", "request", "bulk", "image", "test"],
     "style": {
       "node_label": "Bulk HTTP Request",
       "node_type": "default",
