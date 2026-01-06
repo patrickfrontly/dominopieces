@@ -1,0 +1,8 @@
+[repository]
+REGISTRY_NAME = "patrickfrontly"
+
+REPOSITORY_NAME = "dominopieces"
+REPOSITORY_LABEL = "Patrick Domino Pieces"
+
+VERSION = "0.0.1"
+
